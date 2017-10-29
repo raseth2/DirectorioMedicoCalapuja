@@ -10,6 +10,7 @@ public class PacientesContract  {
 public static abstract class PacienteEntry implements BaseColumns {
     public static final String TABLE_NAME = "pacientes";
 
+
     public static final String ID = "id";
     public static final String NAME = "name";
     public static final String TRATAMIENTO = "tratamiento";
