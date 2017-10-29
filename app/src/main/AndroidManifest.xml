@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".medicodetail.MedicoDetailActivity"
             android:label="@string/title_activity_medico_detail"
@@ -25,7 +26,11 @@
         <activity
             android:name=".addeditmedico.AddEditMedicoActivity"
             android:label="@string/title_activity_add_edit_medico"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Paciente.PacienteActivity"
+            android:label="Paciente Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

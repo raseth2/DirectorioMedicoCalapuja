@@ -1,6 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:layout_marginLeft="72dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.alberto.directoriomedico.medicodetail.MedicoDetailFragment">
@@ -52,6 +54,26 @@
         android:id="@+id/tv_bio"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:text="Su vida"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabPacientes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_paciente"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+
+        android:text="Pacientes"
+        android:textColor="?colorPrimary"/>
+
+    <include layout="@layout/content_main" />
 
 
 

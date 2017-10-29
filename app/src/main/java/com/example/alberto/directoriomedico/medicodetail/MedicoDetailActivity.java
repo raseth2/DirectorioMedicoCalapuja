@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.View;
 
 import com.example.alberto.directoriomedico.MainActivity;
+import com.example.alberto.directoriomedico.MedicosFragment;
+import com.example.alberto.directoriomedico.Paciente.PacienteFragment;
 import com.example.alberto.directoriomedico.R;
 
 public class MedicoDetailActivity extends AppCompatActivity {
@@ -22,7 +24,9 @@ public class MedicoDetailActivity extends AppCompatActivity {
 
         String id = getIntent().getStringExtra(MainActivity.EXTRA_MEDICO_ID);
 
-        MedicoDetailFragment fragment = (MedicoDetailFragment)getSupportFragmentManager().findFragmentById(R.id.medico_detail_container);
+        MedicoDetailFragment fragment = (MedicoDetailFragment)
+                getSupportFragmentManager()
+                        .findFragmentById(R.id.medico_detail_container);
 
         if(fragment == null){
             fragment = MedicoDetailFragment.newInstance(id);
@@ -31,7 +35,6 @@ public class MedicoDetailActivity extends AppCompatActivity {
                     .add(R.id.medico_detail_container,fragment)
                     .commit();
         }
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
