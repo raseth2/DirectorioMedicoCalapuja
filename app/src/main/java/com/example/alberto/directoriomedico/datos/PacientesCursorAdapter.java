@@ -34,8 +34,8 @@ public class PacientesCursorAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, final Context context, Cursor cursor) {
-        TextView nameText = (TextView)view.findViewById(R.id.tv_name);
-        final ImageView avatarImage = (ImageView)view.findViewById(R.id.iv_avatar);
+        TextView nameText = (TextView)view.findViewById(R.id.tv_namen);
+        final ImageView avatarImage = (ImageView)view.findViewById(R.id.iv_avatari);
 
         String name = cursor.getString(cursor.getColumnIndex(PacientesContract.PacienteEntry.NAME));
         String avatarUri = cursor.getString(cursor.getColumnIndex(PacientesContract.PacienteEntry.AVATAR_URI));

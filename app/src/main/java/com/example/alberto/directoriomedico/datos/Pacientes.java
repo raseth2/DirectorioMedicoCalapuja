@@ -17,11 +17,11 @@ public class Pacientes {
     private String bio;
     private String avatarUri;
     public Pacientes( String name
-            , String speciality, String phoneNumber
+            , String tratamiento, String phoneNumber
             , String bio, String avatarUri) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
-        this.tratamiento = speciality;
+        this.tratamiento = tratamiento;
         this.phoneNumber = phoneNumber;
         this.bio = bio;
         this.avatarUri = avatarUri;

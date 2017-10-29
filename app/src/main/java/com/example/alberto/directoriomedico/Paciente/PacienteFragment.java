@@ -16,25 +16,22 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.alberto.directoriomedico.MainActivity;
-import com.example.alberto.directoriomedico.MedicosFragment;
 import com.example.alberto.directoriomedico.R;
 import com.example.alberto.directoriomedico.addeditmedico.AddEditMedicoActivity;
 import com.example.alberto.directoriomedico.datos.MedicosContract;
-import com.example.alberto.directoriomedico.datos.MedicosCursorAdapter;
-import com.example.alberto.directoriomedico.datos.MedicosDbHelper;
 import com.example.alberto.directoriomedico.datos.PacientesContract;
+import com.example.alberto.directoriomedico.datos.PacientesCursorAdapter;
+import com.example.alberto.directoriomedico.datos.PacientesDbHelper;
 import com.example.alberto.directoriomedico.medicodetail.MedicoDetailActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PacienteFragment extends Fragment {
-
     ListView mMedicosList;
     FloatingActionButton mAddButton;
-    MedicosCursorAdapter mMedicosAdapter;
-    MedicosDbHelper mMedicosDBHelper;
+    PacientesCursorAdapter mMedicosAdapter;
+    PacientesDbHelper mMedicosDBHelper;
 
     public static final int REQUEST_UPDATE_DELETE_PACIENTE = 2;
 
@@ -45,7 +42,7 @@ public class PacienteFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static PacienteFragment newInstance(){return new PacienteFragment();}
+    public static PacienteFragment newInstances(){return new PacienteFragment();}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,8 +50,9 @@ public class PacienteFragment extends Fragment {
         // Inflate the layout for this fragment
         View root= inflater.inflate(R.layout.fragment_paciente, container, false);
 
-        mMedicosList = (ListView)root.findViewById(R.id.medicos_list);
-        mMedicosAdapter = new MedicosCursorAdapter(getActivity(),null,0);
+
+        mMedicosList = (ListView)root.findViewById(R.id.pacientes_list);
+        mMedicosAdapter = new PacientesCursorAdapter(getActivity(),null,0);
         mAddButton = (FloatingActionButton)getActivity().findViewById(R.id.fab);
 
         mAddButton.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +64,8 @@ public class PacienteFragment extends Fragment {
 
         mMedicosList.setAdapter(mMedicosAdapter);
 
-        mMedicosDBHelper = new MedicosDbHelper(getActivity());
+        mMedicosDBHelper = new PacientesDbHelper(getActivity());
+
 
         mMedicosList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -78,7 +77,8 @@ public class PacienteFragment extends Fragment {
         });
 
 
-        loadMedicos();
+
+        loadPacientes();
 
         return root;
     }
@@ -89,12 +89,12 @@ public class PacienteFragment extends Fragment {
 
     private void showDetailScreen(String medicoId){
         Intent intent = new Intent(getActivity(), MedicoDetailActivity.class);
-        intent.putExtra(MainActivity.EXTRA_MEDICO_ID,medicoId);
+        intent.putExtra(PacienteActivity.EXTRA_MEDICO_I,medicoId);
         startActivityForResult(intent,REQUEST_UPDATE_DELETE_PACIENTE);
     }
 
-    private void loadMedicos(){
-        new PacienteFragment.PacientesLoadTask().execute();
+    private void loadPacientes(){
+        new PacientesLoadTask().execute();
     }
 
     private class PacientesLoadTask extends AsyncTask<Void,Void,Cursor> {
@@ -102,7 +102,7 @@ public class PacienteFragment extends Fragment {
 
         @Override
         protected Cursor doInBackground(Void... params) {
-            return mMedicosDBHelper.getAllMedicos();
+            return mMedicosDBHelper.getAllPacientes();
         }
 
         @Override
@@ -120,10 +120,10 @@ public class PacienteFragment extends Fragment {
             switch(requestCode){
                 case AddEditMedicoActivity.REQUEST_ADD_MEDICO:
                     showSuccessfullSavedMessage();
-                    loadMedicos();
+                    loadPacientes();
                     break;
                 case REQUEST_UPDATE_DELETE_PACIENTE:
-                    loadMedicos();
+                    loadPacientes();
                     break;
 
             }

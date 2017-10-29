@@ -10,10 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.alberto.directoriomedico.MainActivity;
+import com.example.alberto.directoriomedico.MedicosFragment;
 import com.example.alberto.directoriomedico.R;
 import com.example.alberto.directoriomedico.medicodetail.MedicoDetailFragment;
 
 public class PacienteActivity extends AppCompatActivity {
+    public static String EXTRA_MEDICO_I = "medicoId";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,28 +24,26 @@ public class PacienteActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String id = getIntent().getStringExtra(MainActivity.EXTRA_MEDICO_ID);
 
         PacienteFragment fragment = (PacienteFragment)
-                getSupportFragmentManager()
-                        .findFragmentById(R.id.pacientes_container);
+                getSupportFragmentManager().findFragmentById(R.id.pacientes_container);
 
         if(fragment == null){
-            fragment = PacienteFragment.newInstance();
+            fragment = PacienteFragment.newInstances();
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.pacientes_container,fragment)
                     .commit();
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabPacientes);
+       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabPacientes);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     @Override
@@ -66,5 +66,6 @@ public class PacienteActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+
     }
 }

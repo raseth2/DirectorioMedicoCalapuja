@@ -1,5 +1,6 @@
 package com.example.alberto.directoriomedico.medicodetail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.view.View;
 
 import com.example.alberto.directoriomedico.MainActivity;
 import com.example.alberto.directoriomedico.MedicosFragment;
+import com.example.alberto.directoriomedico.Paciente.PacienteActivity;
 import com.example.alberto.directoriomedico.Paciente.PacienteFragment;
 import com.example.alberto.directoriomedico.R;
 
@@ -39,8 +41,9 @@ public class MedicoDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                startActivity(new Intent(getApplicationContext(),PacienteActivity.class));
+
             }
         });
     }

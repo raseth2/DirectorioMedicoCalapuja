@@ -13,7 +13,7 @@ public class PacientesDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION
             = 1;
     public static final String DATABASE_NAME
-            = "Medicos.db";
+            = "Pacientes.db";
     public PacientesDbHelper(Context context) {
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
@@ -104,12 +104,12 @@ public class PacientesDbHelper extends SQLiteOpenHelper {
                         ,null); // OREDER BY
     }
 
-    public Cursor getPacienteById(String medicoId){
+    public Cursor getPacienteById(String pacienteId){
         return getReadableDatabase()
                 .query(PacientesContract.PacienteEntry.TABLE_NAME
                         ,null
                         , PacientesContract.PacienteEntry.ID + " LIKE ?"
-                        ,new String[] {medicoId}
+                        ,new String[] {pacienteId}
                         ,null
                         ,null
                         ,null);

@@ -54,7 +54,7 @@ public class MedicosDbHelper extends SQLiteOpenHelper {
         mockMedicos(sqLiteDatabase,new Medicos("Marina Acosta"
                 ,"Médico Internista","300 200 3333",
                 "Gran profesional con experiencia de 25 años " +
-                "en Servicio de Hospitalización.","marina_acosta.jpg"));
+                "en Servicio de Hospitalización.","marina_costa.jpg"));
         mockMedicos(sqLiteDatabase,new Medicos("Daniel Samper"
                 ,"Médico Ginecólogo","300 200 4444",
                 "Gran profesional con experiencia de 25 años " +
@@ -62,7 +62,7 @@ public class MedicosDbHelper extends SQLiteOpenHelper {
         mockMedicos(sqLiteDatabase,new Medicos("Lucia Aristizabal"
                 ,"Médico Internista","300 200 5555",
                 "Gran profesional con experiencia de 25 años " +
-                "en Servicio de Hospitalización.","lucia_aristizabal.jpg"));
+                "en Servicio de Hospitalización.","lucia_aristival.jpg"));
         mockMedicos(sqLiteDatabase,new Medicos("Olga Ortiz"
                 ,"Médico Internista","300 200 6666",
                 "Gran profesional con experiencia de 25 años " +
